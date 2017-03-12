@@ -1,42 +1,39 @@
 <?php
 
 require_once '../includes/db.php';
-    if (is_array($dbInfo) && array_key_exists(3, $dbInfo)) {
-    $charset = "utf8";
-    $dsn ="mysql:host=$DB_HOST;dbname=$DB_NAME;charset=$charset";
-    $opt = [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ];
-    }
     try{
-        $pdo = new PDO($dsn, $DB_USER, $DB_PASS, $opt);
+        $connection = mysql_connect("localhost", "root", "");
+
+        if(!$connection){
+            echo "shit happens";
+            exit;
+        }
+        mysql_select_db('bbbar_tempe', $connection);
 
         $username = filter_var($_REQUEST['username'], FILTER_SANITIZE_STRING);
         $password = filter_var($_REQUEST['pass'], FILTER_SANITIZE_STRING);
 
-        $updatesql = "SELECT username as username, role as role FROM :table_prod WHERE username = :username and :password = :password ";
-        $updatestatement = $pdo->prepare($updatesql);
-        $updatestatement->bindParam(':table_prod', $_TBL_user);
-        $updatestatement->bindParam(':username', $username);
-        $updatestatement->bindParam(':password', $password);
+        $selectsql = "SELECT username, role FROM $TBL_user 
+            WHERE username = '$username' and pword = '$password'";
+        $result = mysql_query($selectsql);
 
-        $listeOfUsers = $updatestatement->execute();
+        if (!$result) {
+            //echo '账户或密码输入有误，请重新输入';
+            exit;
+        } else {
+            $rows = array();
+             while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+                    //a row contained username and role
+                    console.log("UserName : %s  Role : %s", $row["username"], $row["role"]);
+                    array_push($rows, $row);
+            }
+            echo json_encode($rows);
+            // in php echo is return
+        }
     }
     catch(Exception $e){
         echo 'Unable to access.' + $e;
         exit;
     }
-    if (!$listeOfUsers) {
-   
-        echo '账户输入有误，请重新输入';
-        exit;
-    }
-    // Yayy!
     
-    $user = array();
-    $user = $updatestatement->fetch(PDO::FETCH_ASSOC) ;
-    // $user['username'] @ $user['role']
-    echo json_encode($user);
 ?>

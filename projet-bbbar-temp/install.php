@@ -11,7 +11,7 @@ error_reporting(E_ERROR);
 $host = (isset($_POST['dbhost']) && strlen($_POST['dbhost']) > 0 ) ? $_POST['dbhost'] : 'localhost';
 $user = (isset($_POST['dbuser']) && strlen($_POST['dbuser']) > 0 ) ? $_POST['dbuser'] : 'root';
 $pass = (isset($_POST['dbpass']) && strlen($_POST['dbpass']) > 0 ) ? $_POST['dbpass'] : '';
-$name = (isset($_POST['dbname']) && strlen($_POST['dbname']) > 0 ) ? $_POST['dbname'] : 'project_task';
+$name = (isset($_POST['dbname']) && strlen($_POST['dbname']) > 0 ) ? $_POST['dbname'] : 'bbbar_tempe';
 
 $error = false;
 

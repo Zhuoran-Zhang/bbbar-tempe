@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head lang="en">
+
+<head lang="en">
     <meta charset="UTF-8">
     <title>登陆页面</title>
     <link rel="import" href="../index.php">
-      <!-- Custom styles for this template -->
+    <!-- Custom styles for this template -->
     <link href="../css/narrow-jumbotron.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body ng-app="myApp" ng-controller="LoginCtrl">
-    <div class="container container-fluid" >
-       <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills">
-            <li class="nav-item" style="float: right">
-              <a class="nav-link active" href="../index.php">回到主页 </a>
-            </li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">用户登录</h3>
-      </div>
+<body ng-app="myApp" ng-controller="LoginCtrl">
+    <div class="container container-fluid">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills">
+                    <li class="nav-item" style="float: right">
+                        <a class="nav-link active" href="../index.php">回到主页 </a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">用户登录</h3>
+        </div>
 
-    <div class="input-group margin-bottom-sm">
-  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-  <input class="form-control" type="text" placeholder="用户名" ng-model="username">>
-</div>
-<div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-  <input class="form-control" type="password" placeholder="密码" ng-model="password">
-</div>
+        <div class="input-group margin-bottom-sm">
+            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+            <input class="form-control" type="text" placeholder="用户名" ng-model="username">>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+            <input class="form-control" type="password" placeholder="密码" ng-model="password">
+        </div>
 
-<button type="button" class="btn btn-primary" ng-click="login(username,password)">登录</button>
+        <button type="button" class="btn btn-primary" ng-click="login(username,password)">登录</button>
 
-  </body>
+        <div>{{information}}</div>
+</body>
+
 </html>
