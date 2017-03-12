@@ -19,7 +19,7 @@ if (!file_exists('dbconfig')) {
     <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
   </head>
   <body ng-app="myApp" style="background-image:url('images/Lounge-Bar.jpg');">
-    <div class="container container-fluid" ng-controller="taskController">
+    <div class="container container-fluid" >
       <div class="row" >
         <div class="col-mg-12">
 
@@ -72,13 +72,10 @@ if (!file_exists('dbconfig')) {
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/controllers/myroute.js"></script>
+    <script src="scripts/app.js"></script>  
+    <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/user.js"></script>
-    <script src="scripts/directives/mydirective.js"></script>
-    <script src="scripts/services/myservice.js"></script>
+    
 </body>
  
 </html>

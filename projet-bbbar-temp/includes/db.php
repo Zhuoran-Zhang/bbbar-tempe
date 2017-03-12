@@ -33,3 +33,5 @@ if (!$mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME)) {
 
 $TBL_PROD = 'tbl_product';
 $TBL_PRICE = 'tbl_product_price';
+
+$TBL_user = 'tbl_user';

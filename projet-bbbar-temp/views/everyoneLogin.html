@@ -8,7 +8,7 @@
     <link href="../css/narrow-jumbotron.css" rel="stylesheet">
   </head>
 
-  <body ng-app="myApp">
+  <body ng-app="myApp" ng-controller="LoginCtrl">
     <div class="container container-fluid" >
        <div class="header clearfix">
         <nav>
@@ -21,41 +21,16 @@
         <h3 class="text-muted">用户登录</h3>
       </div>
 
-      <!--<div class="row marketing">
-       <div class="table-responsive">          
-        <table class="table">
-          <thead>
-            <tr>
-              <th>目前排名</th>
-              <th>用户名</th>
-              <th>分数</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>大保健</td>
-              <td>250</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>大表弟</td>
-              <td>38</td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
-   
-    </div> -->
     <div class="input-group margin-bottom-sm">
   <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-  <input class="form-control" type="text" placeholder="用户名">
+  <input class="form-control" type="text" placeholder="用户名" ng-model="username">>
 </div>
 <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-  <input class="form-control" type="password" placeholder="密码">
+  <input class="form-control" type="password" placeholder="密码" ng-model="password">
 </div>
+
+<button type="button" class="btn btn-primary" ng-click="login(username,password)">登录</button>
 
   </body>
 </html>
