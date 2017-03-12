@@ -26,6 +26,8 @@ angular.module('myApp')
                     console.log("reponse " + JSON.stringify(response[position]));
                     if (response[position] !== undefined && response[position].role === "boss") {
                         $window.location.href = '../index.php';
+                    } else if (response[position] !== undefined && response[position].role === "guest") {
+                        $window.location.href = '../index.php';
                     } else {
                         $scope.information = "账户或密码输入有误，请重新输入";
                     }
