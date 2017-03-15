@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我是主持人-录入信息</title>
+    <link rel="import" href="../index.php">
+    <!-- Custom styles for this template -->
+    <link href="../css/narrow-jumbotron.css" rel="stylesheet">
+</head>
+
+<body ng-app="myApp" ng-controller="TableCtrl">
+    <div class="container container-fluid">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills">
+                    <li class="nav-item" style="float: right">
+                        <a class="nav-link active" href="../index.php">回到主页 </a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">我是主持人-录入信息</h3>
+        </div>
+        <!--here we add a number input controller-->
+
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+            <input class="form-control" type="numberPerson" placeholder="玩家人数" ng-model="numberPerson">
+        </div>
+
+        <button type="button" class="btn btn-primary" ng-click="createTable(numberPerson)">确定</button>
+
+        <div class="row marketing">
+            <div class="table-responsive">
+                <table class="table" ,id='enterPlayer'>
+                    <thead>
+                        <tr>
+                            <th>玩家</th>
+                            <th>玩家用户名</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                    <input class="form-control" type="namePlayer" placeholder="用户名" ng-model="namePlayer">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary" ng-click="createTable(numberPerson)">加入新玩家</button>
+                <button type="button" class="btn btn-primary" ng-click="createTable(numberPerson)">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table" ,id='modeChoose'>
+            <thead>
+                <tr>
+                    <th>游戏方式</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select name="cars">
+                                    <option value="volvo">屠边局</option>
+                                    <option value="saab">屠城局</option>
+                                </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" ng-click="createTable(numberPerson)">确定游戏方式</button>
+    </div>
+
+
+    <div class="table-responsive">
+        <table class="table" ,id='enterNumberCharacter'>
+            <thead>
+                <tr>
+                    <th>角色</th>
+                    <th>数量</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>狼人</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>狼美人</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>恶魔</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>预言家</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>熊</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>女巫</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>白痴</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>猎人</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>吹笛者</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>锈剑骑士</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>骑士</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>潜行者</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>禁言长老</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>守卫</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>乌鸦</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>大树长老</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>丘比特</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>盗贼</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>野孩子</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>混血儿</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="numberWolf" placeholder="数量" ng-model="numberWolf">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" ng-click="createTable(numberPerson)">确定</button>
+        <button type="button" class="btn btn-primary" ng-click="startGame()">开始游戏</button>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
