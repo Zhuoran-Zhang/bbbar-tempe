@@ -40,55 +40,35 @@ app.controller('LoginCtrl', function($scope, $http, $window) {
         });
     };
 
+    $scope.createNewUser = function() {
+        $window.location.href = '../views/guestRegistre.html';
+    };
 });
-app.controller('TableCtrl', function($scope, $window) {
+
+app.controller('hostEnterInfoControl', function($scope, $window) {
     $scope.numberPerson = "";
 
     $scope.createTable = function(numberPerson) {
         console.log('number of person =' + numberPerson);
 
-        /*var num_rows = numberPerson;
-        var num_cols = 2;
-        var theader = '<table border="1">\n';
-        var tbody = '';
-
-        for (var i = 0; i < num_rows; i++) {
-            tbody += '<tr>';
-            for (var j = 0; j < num_cols; j++) {
-                tbody += '<td>';
-                tbody += 'Cell ' + i + ',' + j;
-                tbody += '</td>'
-            }
-            tbody += '</tr>\n';
-        }
-        var tfooter = '</table>';*/
-        //document.getElementById('wrapper').innerHTML = theader + tbody + tfooter;
     };
     $scope.startGame = function() {
         $window.location.href = '../views/hostStartGame.html';
     };
 });
-app.controller('GameControl', function($scope, $window) {
+
+app.controller('hostStartGameControl', function($scope, $window) {
     //$scope.numberPerson = "";
 
     $scope.finishGame = function() {
         $window.location.href = '../views/resultGame.html';
-        //console.log('number of person =' + numberPerson);
-        /*var num_rows = numberPerson;
-        var num_cols = 2;
-        var theader = '<table border="1">\n';
-        var tbody = '';
+    };
+});
 
-        for (var i = 0; i < num_rows; i++) {
-            tbody += '<tr>';
-            for (var j = 0; j < num_cols; j++) {
-                tbody += '<td>';
-                tbody += 'Cell ' + i + ',' + j;
-                tbody += '</td>'
-            }
-            tbody += '</tr>\n';
-        }
-        var tfooter = '</table>';*/
-        //document.getElementById('wrapper').innerHTML = theader + tbody + tfooter;
+app.controller('guestRegistreControl', function($scope, $window) {
+    //$scope.numberPerson = "";
+
+    $scope.goRegistre = function() {
+        $window.location.href = '../views/resultGame.html';
     };
 });
