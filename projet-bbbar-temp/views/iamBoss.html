@@ -9,7 +9,7 @@
     <link href="../css/narrow-jumbotron.css" rel="stylesheet">
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="iamBossCtrl">
     <div class="container container-fluid">
         <div class="header clearfix">
             <nav>
@@ -32,13 +32,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>大保健</td>
-                            <td>3838383838383</td>
-                        </tr>
-                        <tr>
-                            <td>大表弟</td>
-                            <td>222222222222</td>
+                        <tr ng-repeat="user in users" ng-if="users.length > 0">
+                            <td>{{user.username}}</td>
+                            <td>{{user.pword}}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -33,23 +33,6 @@ if (!file_exists('dbconfig')) {
             <div class="container">
             <!-- Example row of columns -->
             <div class="row">
-  <!--            <div class="col-md-6">
-                <h2></h2>
-                <p><button class="btn btn-default btn-lg" type="submit">我是大屏幕</button></p>
-              </div>
-              <div class="col-md-6">
-                <h2>我是主持人</h2>
-                <P><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-              <div class="col-md-6">
-                <h2>我是玩家</h2>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-              </div>
-              <div class="col-md-6">
-                <h2>我是老板</h2>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-              </div>
--->
               <div class="list-group" style="width: 116px"> 
                 <a href="views/iamScreen.html" class="list-group-item ">我是大屏幕</a>
                 <a href="views/everyoneLogin.html" class="list-group-item ">我是主持人</a>
@@ -73,8 +56,8 @@ if (!file_exists('dbconfig')) {
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
     <script src="scripts/app.js"></script>  
-    <script src="scripts/controllers/login.js"></script>
-    <script src="scripts/controllers/user.js"></script>
+    <script src="scripts/controllers/login.js"></script>>
+    <script src="scripts/controllers/iamBoss.js"></script>>
     
 </body>
  

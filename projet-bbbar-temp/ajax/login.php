@@ -2,13 +2,13 @@
 
 require_once '../includes/db.php';
     try{
-        $connection = mysql_connect("localhost", "root", "");
+        $connection = mysql_connect($DB_HOST,$DB_USER, $DB_PASS);
 
         if(!$connection){
             echo "shit happens";
             exit;
         }
-        mysql_select_db('bbbar_tempe', $connection);
+        mysql_select_db($DB_NAME, $connection);
 
         $username = filter_var($_REQUEST['username'], FILTER_SANITIZE_STRING);
         $password = filter_var($_REQUEST['pass'], FILTER_SANITIZE_STRING);

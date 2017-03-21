@@ -7,7 +7,8 @@
  * # LoginCtrl
  * Controller of the myApp
  */
-var app = angular.module('myApp', []);
+//var app = angular.module('myApp', []);
+
 app.controller('LoginCtrl', function($scope, $http, $window) {
     $scope.username = "";
     $scope.password = "";
