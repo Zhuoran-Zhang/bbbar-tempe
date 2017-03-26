@@ -3,7 +3,7 @@
 
 <head lang="en">
     <meta charset="UTF-8">
-    <title>游戏开始</title>
+    <title>狼人杀游戏</title>
     <link rel="import" href="../index.php">
     <!-- Custom styles for this template -->
     <link href="../css/narrow-jumbotron.css" rel="stylesheet">
@@ -13,48 +13,62 @@
     <div class="container container-fluid">
         <div class="header clearfix">
             <nav>
-
                 <ul class="nav nav-pills">
                     <li class="nav-item" style="float: right">
                         <a class="nav-link active" href="../index.php">回到主页 </a>
                     </li>
                 </ul>
             </nav>
-            <h3 class="text-muted">游戏开始</h3>
+            <h3 class="text-muted" ng-show="!gameOver">游戏开始</h3>
+            <h3 class="text-muted" ng-show="gameOver">游戏结束</h3>
         </div>
 
-        <div class="row marketing">
+        <div class="row">
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" ng-show="!gameOver">
                     <thead>
                         <tr>
+                            <th>玩家用户名</th>
+                            <th>本局得分</th>
+                            <th>加分</th>
+                            <th>确认</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr ng-repeat="player in players">
+                            <td type="text" ng-model="player.playerName" >{{player.playerName}}</td>
+                            <td type="text" ng-model="player.score" >{{player.score}}</td>
+                            <td>
+                                <select ng-model="player.scoreSelect" ng-init="player.scoreSelect = 100">
+                                    <option value="100" selected>100</option>
+                                    <option value="200">200</option>
+                                    <option value="300">300</option>
+                                </select>
+                            </td>
+                            <td><button class="button" ng-click="addScore($index)"> 确认</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                 <button type="button" class="btn btn-primary" ng-click="finishGame()" ng-show="!gameOver">游戏结束</button>
+                 <table class="table" ng-show="gameOver">
+                    <thead>
+                        <tr>
+                            <th>名次</th>
                             <th>玩家用户名</th>
                             <th>本局得分</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>大保健</td>
-                            <td><select name="scoreChoose">
-                                    <option value="volvo">1000</option>
-                                    <option value="saab">2000</option>
-                                </select></td>
-                        </tr>
-                        <tr>
-                            <td>大表弟</td>
-                            <td><select name="scoreChoose">
-                                    <option value="volvo">1000</option>
-                                    <option value="saab">2000</option>
-                                </select></td>
+                       <tr ng-repeat="player in players | orderBy : '-score' ">
+                            <td>{{$index + 1}}</td>
+                            <td type="text" ng-model="player.playerName" >{{player.playerName}}</td>
+                            <td type="text" ng-model="player.score" >{{player.score}}</td>
                         </tr>
                     </tbody>
                 </table>
-
             </div>
 
         </div>
-        <button type="button" class="btn btn-primary" ng-click="finishGame()">游戏结束</button>
-
 </body>
 
 </html>

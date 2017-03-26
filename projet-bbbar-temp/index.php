@@ -56,8 +56,9 @@ if (!file_exists('dbconfig')) {
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
     <script src="scripts/app.js"></script>  
-    <script src="scripts/controllers/login.js"></script>>
-    <script src="scripts/controllers/iamBoss.js"></script>>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/iamBoss.js"></script>
+    <script src="scripts/controllers/host.js"></script>
     
 </body>
  

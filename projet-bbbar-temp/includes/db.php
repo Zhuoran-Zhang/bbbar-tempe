@@ -31,5 +31,13 @@ if (!$mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME)) {
   exit;
 }
 
-// Table User
+// Tables
 $TBL_user = 'tbl_user';
+$TBL_games  = 'tbl_games';
+
+$mysqli = new mysqli($DB_HOST , $DB_USER, $DB_PASS, $DB_NAME);
+
+  if ($mysqli->connect_errno) {
+      echo "shit happens";
+      exit;
+  }

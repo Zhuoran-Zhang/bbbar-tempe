@@ -46,26 +46,6 @@ app.controller('LoginCtrl', function($scope, $http, $window) {
     };
 });
 
-app.controller('hostEnterInfoControl', function($scope, $window) {
-    $scope.numberPerson = "";
-
-    $scope.createTable = function(numberPerson) {
-        console.log('number of person =' + numberPerson);
-
-    };
-    $scope.startGame = function() {
-        $window.location.href = '../views/hostStartGame.html';
-    };
-});
-
-app.controller('hostStartGameControl', function($scope, $window) {
-    //$scope.numberPerson = "";
-
-    $scope.finishGame = function() {
-        $window.location.href = '../views/resultGame.html';
-    };
-});
-
 app.controller('guestRegistreControl', function($scope, $window) {
     //$scope.numberPerson = "";
 
