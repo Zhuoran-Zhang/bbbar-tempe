@@ -155,6 +155,7 @@ app.controller('hostStartGameControl', function($scope, $window,$http) {
     }
     $scope.finishGame = function() {
         $scope.gameOver = true;
+         // 存比分 TODO
        // $window.location.href = '../views/resultGame.html';
     };
 

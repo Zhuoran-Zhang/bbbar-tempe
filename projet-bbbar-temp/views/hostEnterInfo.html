@@ -10,7 +10,7 @@
 </head>
 
 <body ng-app="myApp" ng-controller="hostEntreInfoControl">
-    <div class="container">
+    <div class="container-fluid">
         <div class="header">
             <nav>
                 <ul class="nav nav-pills">
@@ -23,14 +23,12 @@
         </div>
         <!--here we add a number input controller-->
 
-        <div class = "row">
+        <div class = "col-lg-4">
            <label for="sel1">请选择房间号:</label>
             <select  class="form-control" ng-model="room" ng-change="getRoom()">
                 <option ng-repeat="room in rooms" value="{{room}}">{{room}}</option>
             </select>
-        </div>
-
-        <div class="row">
+        
             <div class="table-responsive">
                 <table class="table" id='enterPlayer'>
                     <thead>
@@ -58,9 +56,8 @@
                 <button type="button" class="btn btn-primary" ng-click="finish()" ng-show = "!allPlayersOK">结束添加并确认</button>
                 <label ng-show="allPlayersOK"> 所有玩家已输入完毕，请继续游戏</label>
             </div>
-        </div>
+       
     
-    <div class="row">
         <label> 游戏方式</label>
             <select  class="form-control"  name="modeChoose">
                         <option value="volvo">屠边局</option>
@@ -68,8 +65,8 @@
             </select>    
             <button type="button" class="btn btn-primary" ng-click="">确定游戏方式</button>
     </div>
-
-<div class = "row">
+    
+<div class="col-lg-8">
     <div class="table-responsive">
         <table class="table" ,id='enterNumberCharacter'>
             <thead>

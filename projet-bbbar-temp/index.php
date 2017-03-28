@@ -15,6 +15,7 @@ if (!file_exists('dbconfig')) {
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
   </head>
@@ -59,6 +60,7 @@ if (!file_exists('dbconfig')) {
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/iamBoss.js"></script>
     <script src="scripts/controllers/host.js"></script>
+    <script src="scripts/controllers/iamScreen.js"></script>
     
 </body>
  
