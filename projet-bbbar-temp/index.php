@@ -39,7 +39,7 @@ if (!file_exists('dbconfig')) {
                 <a href="views/everyoneLogin.html" class="list-group-item ">我是主持人</a>
                 <a href="views/everyoneLogin.html" class="list-group-item ">我是玩家</a>
                 <a href="views/everyoneLogin.html" class="list-group-item ">我是老板</a>
-                <a href="views/doc.html" class="list-group-item ">我是老板</a>
+                <a href="views/doc.html" class="list-group-item ">使用说明及意见</a>
                 
               </div>
       </div>
