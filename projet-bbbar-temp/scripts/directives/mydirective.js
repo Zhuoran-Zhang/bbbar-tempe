@@ -6,51 +6,30 @@
  * @description
  * # myDirective
  */
-angular.module('myApp')
-  .directive('myDirective', function () {
+app.directive('equalsTo', [function () {
+    /*
+     * <input type="password" ng-model="Password" />
+     * <input type="password" ng-model="ConfirmPassword" equals-to="Password" />
+     */
     return {
-      template: '<div></div>',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the myDirective directive');
-      }
-    };
-  });
-// That enter key on the Retail number!
-angular.module('myApp')
-  .directive('ngEnter', function () {
-  return function (scope, element, attrs) {
-    element.bind("keydown keypress", function (event) {
-      if (event.which === 13) {
-        scope.$apply(function () {
-          scope.$eval(attrs.ngEnter);
-        });
-        event.preventDefault();
-      }
-    });
-  };
-});
+        restrict: 'A', // S'utilise uniquement en tant qu'attribut
+        scope: true,
+        require: 'ngModel',
+        link: function (scope, elem, attrs, control) {
+            var check = function () {
+                //Valeur du champs courant 
+                var v1 = scope.$eval(attrs.ngModel); // attrs.ngModel = “ConfirmPassword”
 
+                //valeur du champ à comparer
+                var v2 = scope.$eval(attrs.equalsTo).$viewValue; // attrs.equalsTo = “Password”
 
-// That enter key on the Retail number!
-angular.module('myApp')
-  .directive('ngNumeric', function () {
-  return function (scope, element, attrs) {
-    element.bind("keydown", function (event) {
-      scope.$apply(function () {
-//        var intVal = $(element).val().replace(/\D/, '');
-//        console.log(intVal);
-//        if (!isNaN(intVal)) {
-//          $(element).val(intVal);
-//        }
+                return v1 == v2;
+            };
 
-        console.log(event.which);
-
-        if (event.which >= 65 && event.which <= 90) {
-          //alert("NO");
-          event.preventDefault();
+            scope.$watch(check, function (isValid) {
+                // Défini si le champ est valide
+                control.$setValidity("equalsTo", isValid);
+            });
         }
-      });
-    });
-  };
-});
+    };
+}]);

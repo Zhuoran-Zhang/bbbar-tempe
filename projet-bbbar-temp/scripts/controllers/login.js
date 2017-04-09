@@ -28,7 +28,7 @@ app.controller('LoginCtrl', function($scope, $http, $window) {
                 if (response[position] !== undefined && response[position].role === "boss") {
                     $window.location.href = '../views/iamBoss.html';
                 } else if (response[position] !== undefined && response[position].role === "guest") {
-                    $window.location.href = '../views/iamGuest.html';
+                    $window.location.href = '../views/iamGuest.html?' + username; 
                 } else if (response[position] !== undefined && response[position].role === "host") {
                     $window.location.href = '../views/hostEnterInfo.html';
                 } else {
@@ -46,10 +46,3 @@ app.controller('LoginCtrl', function($scope, $http, $window) {
     };
 });
 
-app.controller('guestRegistreControl', function($scope, $window) {
-    //$scope.numberPerson = "";
-
-    $scope.goRegistre = function() {
-        $window.location.href = '../views/resultGame.html';
-    };
-});

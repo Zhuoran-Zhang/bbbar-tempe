@@ -39,7 +39,7 @@ if (!file_exists('dbconfig')) {
                 <a href="views/everyoneLogin.html" class="list-group-item ">我是主持人</a>
                 <a href="views/everyoneLogin.html" class="list-group-item ">我是玩家</a>
                 <a href="views/everyoneLogin.html" class="list-group-item ">我是老板</a>
-                <a href="views/doc.html" class="list-group-item ">使用说明及意见</a>
+                <a href="views/doc.html" class="list-group-item ">使用说明</a>
                 
               </div>
       </div>
@@ -62,6 +62,12 @@ if (!file_exists('dbconfig')) {
     <script src="scripts/controllers/iamBoss.js"></script>
     <script src="scripts/controllers/host.js"></script>
     <script src="scripts/controllers/iamScreen.js"></script>
+    <script src="scripts/controllers/iamGuest.js"></script>
+    <script src="scripts/controllers/registre.js"></script>
+    
+    <script src="scripts/directives/mydirective.js"></script>
+    
+    
     
 </body>
  

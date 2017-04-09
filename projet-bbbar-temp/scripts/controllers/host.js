@@ -2,7 +2,7 @@
 
 app.controller('hostEntreInfoControl', function($scope, $window,$http) {
     $scope.namePlayer = "";
-    $scope.rooms = ['1', '2'];
+    $scope.rooms = ["1", "2"];
     $scope.room = "";
     $scope.allPlayersOK = false;
 
@@ -54,20 +54,36 @@ app.controller('hostEntreInfoControl', function($scope, $window,$http) {
 
     $scope.valide = function (index){
         // 存储此用户信息 核对用户名是否正确
-        $http({
+         $http({
             method: 'POST',
-            url: "../ajax/updatePlayer.php?roomId=" + $scope.room + "&playerName=" + $scope.players[index].playerName + "&action=add"
+            url: "../ajax/getPlayers.php?playerName=" + $scope.players[index].playerName + "&action=checkUser"
         }).success(function(response) {
-            //reponse is from echo of getUsers.php
             if (response.length === undefined || response.length == 0) {
                 console.log("failed");
-            } else if(response === "OK"){
-                 console.log("add new player ok");
-               $scope.players[index].valide = true;
-            } else{
-                console.log(response);
+            } else if(parseInt(response[0].countUser) > 0){
+                // 确认添加用户
+                $http({
+                    method: 'POST',
+                    url: "../ajax/updatePlayer.php?roomId=" + $scope.room + "&playerName=" + $scope.players[index].playerName + "&action=add"
+                }).success(function(response) {
+                    //reponse is from echo of getUsers.php
+                    if (response.length === undefined || response.length == 0) {
+                        console.log("failed");
+                    } else if(response === "OK"){
+                        console.log("add new player ok");
+                    $scope.players[index].valide = true;
+                    } else{
+                        console.log(response);
+                    }
+                });
+            } else if(parseInt(response[0].countUser) == 0){
+                alert("用户名不存在，请重新输入");
+            } else {
+              console.log(JSON.stringify(response));
             }
         });
+
+       
     }
 
     $scope.delete = function (index){
@@ -116,24 +132,40 @@ app.controller('hostEntreInfoControl', function($scope, $window,$http) {
     $scope.startGame = function() {
         $window.location.href = '../views/hostStartGame.html?' + $scope.room;
     };
-    
-    //init();
+
 });
 
 app.controller('hostStartGameControl', function($scope, $window,$http) {
     $scope.room = "";
     $scope.scoreSelect = 0;
     $scope.players=[];
-    $scope.gameOver = false;
 
     var init = function (){
         var queryString = location.search;
         $scope.room = queryString.substr(1);
+        getGameStatut();
         getPlayers();
     }
 
+    var getGameStatut = function(){
+        // Get game statut
+        $http({
+            method: 'GET',
+            url: "../ajax/getPlayers.php?roomId=" + $scope.room + "&action=getGame"
+        }).success(function(response) {
+            //reponse is from echo of getUsers.php
+            if (response.length === undefined || response.length == 0) {
+                console.log("No results");
+            } else {
+                $scope.gameOver = response[0].gameOver == 0 ? false : true;
+
+                console.log("gameOver" + $scope.gameOver);
+            }
+        });
+    }
+
     var getPlayers = function(){
-        console.log($scope.room);
+        console.log("room number " + $scope.room);
         // Get all the players
         $http({
             method: 'GET',
@@ -144,7 +176,7 @@ app.controller('hostStartGameControl', function($scope, $window,$http) {
                 init();
                 console.log("No results");
             } else {
-                console.log("reponse " + JSON.stringify(response));
+                console.log("getPlayers reponse " + JSON.stringify(response));
                 $scope.players = response;
             }
         });
@@ -152,12 +184,74 @@ app.controller('hostStartGameControl', function($scope, $window,$http) {
 
     $scope.addScore = function(index) {
         $scope.players[index].score = parseInt($scope.players[index].score) + parseInt($scope.players[index].scoreSelect);
+        // BDD
+         $http({
+            method: 'POST',
+            url: "../ajax/updatePlayer.php?playerName=" + $scope.players[index].playerName 
+                + "&score=" + $scope.players[index].score + "&action=addScore"
+        }).success(function(response) {
+            //reponse is from echo of getUsers.php
+            if (response.length === undefined || response.length == 0) {
+                console.log("failed");
+            } else if(response === "OK"){
+                console.log("player addScore ok");
+            
+            } else{
+                console.log("response " + JSON.stringify(response));
+            }
+        });
+            // Add Score for everyone
+        $http({
+            method: 'POST',
+            url: "../ajax/updatePlayer.php?playerName=" + $scope.players[index].playerName
+            + "&score=" + parseInt($scope.players[index].scoreSelect) + "&action=updateScoreToUser"
+        }).success(function(response) {
+            //reponse is from echo of getUsers.php
+            if (response.length === undefined || response.length == 0) {
+                console.log("add score to user failed"  );
+            } else if(response === "OK"){
+                console.log("all players addScoreToUser ok");
+            } else{
+                console.log("response " + JSON.stringify(response));
+            }
+        });
     }
     $scope.finishGame = function() {
         $scope.gameOver = true;
-         // 存比分 TODO
-       // $window.location.href = '../views/resultGame.html';
+        $http({
+                method: 'POST',
+                url: "../ajax/updatePlayer.php?roomId=" + $scope.room + "&gameOver=1&action=gameOver"
+            }).success(function(response) {
+                //reponse is from echo of getUsers.php
+                if (response.length === undefined || response.length == 0) {
+                    console.log("failed");
+                } else if(response === "OK"){
+                    console.log("Game Over");
+                } else{
+                    console.log("response " + JSON.stringify(response));
+                }
+            });
     };
+
+    $scope.exitGame = function (){ 
+      
+         $http({
+                method: 'POST',
+                url: "../ajax/updatePlayer.php?roomId=" + $scope.room  + "&action=deleteAll"
+            }).success(function(response) {
+                //reponse is from echo of getUsers.php
+                if (response.length === undefined || response.length == 0) {
+                    console.log("failed");
+                } else if(response === "OK"){
+                    console.log("All players delete ok");
+                    $window.location.href = "../index.php";
+                } else{
+                    console.log(response);
+                }
+            });
+      
+        //$window.location.href("../index.php");
+    }
 
     init();
 });

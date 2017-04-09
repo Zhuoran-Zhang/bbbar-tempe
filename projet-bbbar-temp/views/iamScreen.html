@@ -21,13 +21,7 @@
         <h3 class="text-muted">我是大屏幕</h3>
       </div>
 
-      <div class = "col-lg-4">
-           <label for="sel1">请选择房间号:</label>
-            <select  class="form-control" ng-model="room" ng-change="getRoom()">
-                <option ng-repeat="room in rooms" value="{{room}}">{{room}}</option>
-            </select>
-        </div>
-      <div class="col-lg-8">
+      <div class="col-lg-12">
       
        <div class="table-responsive">          
         <table class="table">
@@ -41,7 +35,7 @@
           <tbody>
               <tr ng-repeat="player in players | orderBy : '-score' ">
                   <td>{{$index + 1}}</td>
-                  <td type="text" ng-model="player.playerName" >{{player.playerName}}</td>
+                  <td type="text" ng-model="player.username" >{{player.username}}</td>
                   <td type="text" ng-model="player.score" >{{player.score}}</td>
               </tr>
           </tbody>
